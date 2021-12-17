@@ -1,5 +1,5 @@
 const imageModel = require("../models/images");
-const fs = require("fs"); //convertendo para 64bit
+const fs = require("fs"); //para ler o arquivo e converter
 
 exports.uploads = (req, res, next) => {
   const files = req.files;
@@ -9,6 +9,7 @@ exports.uploads = (req, res, next) => {
     error.httpStatusCode = 400;
     return next(error);
   }
+  
   let imgArray = files.map((file) => { //Convertendo para 64 bits
     
     let img = fs.readFileSync(file.path);
