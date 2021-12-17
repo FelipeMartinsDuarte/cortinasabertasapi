@@ -1,8 +1,12 @@
 {
-  "author": {"name": "Felipe"},
+  "author": {
+    "name": "Felipe"
+  },
   "version": "0.0",
-  "description": "Creating api to frontend",
+  "description": "Creating api",
   "dependencies": {
-    "express": "^4.17.1"
+    "body-parser": "^1.19.1",
+    "express": "^4.17.1",
+    "mongoose": "^6.1.2"
   }
 }
