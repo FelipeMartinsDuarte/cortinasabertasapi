@@ -1,21 +1,48 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const path = require("path");
 const app = express();
+const handlebars = require('express-handlebars');
 
 
-//Configurações
-mongoose.connect('mongodb://localhost:27017/cortinasabertas').then(console.log("Database Conectada"));
+//Configurations - Importing database and models
+mongoose.connect('mongodb://localhost:27017/cortinasabertas')
+//let nursing = require('./models/nursing')
+//Handlebars
+app.engine('handlebars', handlebars.engine({defaultLayout:'main'}));
+app.set('view engine', 'handlebars');
+//Express
+app.use(express.json())
 
-let nursing = require('./models/nursing')
+//Calling Routes 
+app.use('/', require('./routers/router.js'));
 
 
-//Routes
-app.get('/',(req,res)=>{
-    res.send("Tá funcionando")
+
+app.get('/', (req,res)=>{
+  res.render('app')
 })
+//Routes
+/*
+Nursing
 
+app.get('/:id',(req,res)=>{
+    res.send("Tá funcionando")
+});
 
+app.post('/:id',(req,res)=>{
+  res.send("Tá funcionando")
+});
 
-app.listen(800,()=>{
+app.put('/:id',(req,res)=>{
+  res.send("Tá funcionando")
+});
+
+app.delete('/:id',(req,res)=>{
+  res.send("Tá funcionando")
+});
+*/
+
+app.listen(9090,()=>{
   console.log("Conectado")
 })
