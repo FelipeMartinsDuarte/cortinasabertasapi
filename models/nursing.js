@@ -29,8 +29,12 @@ const nursingSchema = new mongoose.Schema({
                 require: true   
             },
             description:{
-                type: Array,
+                type: String,
                 require: true   
+            },
+
+            images:{
+                type: Array,
             }
         },
     },
@@ -40,11 +44,21 @@ const nursingSchema = new mongoose.Schema({
     },
 
     tags:{
-        state:{},
-        municipe:{},
-        city:{},
-        district:{},
-        region:{},
+        state:{
+            type: String
+        },
+        municipe:{
+            type: String
+        },
+        city:{
+            type: String
+        },
+        district:{
+            type: String
+        },
+        region:{
+            type: String
+        },
     }
 });
 
