@@ -1,24 +1,31 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const path = require("path");
 const app = express();
 const handlebars = require('express-handlebars');
 
 
 //Configurations - Importing database and models
 mongoose.connect('mongodb://localhost:27017/cortinasabertas')
-//let nursing = require('./models/nursing')
 //Handlebars
 app.engine('handlebars', handlebars.engine({defaultLayout:'main'}));
 app.set('view engine', 'handlebars');
 //Express
-app.use(express.json())
+//app.use(express.json())
 
 //Calling Routes 
-app.use('/', require('./routers/router.js'));
+app.use('/', require('./routers/router.js')); //Trazendo multer e controller e router
 
 
 
+
+
+
+
+
+
+
+
+//Renderizando pagina
 app.get('/', (req,res)=>{
   res.render('app')
 })
