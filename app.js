@@ -22,8 +22,6 @@ let nursing = new NursingModel({
   },
   owner: "61bf1bc2bd08f89ea5936753",
 })
-
-
 let cliente = new ClientuserModel({
 name:"Felipe",
 credential:{
@@ -37,11 +35,6 @@ documents:{
 own: "61bf28d45c5c3b254caa10c1",
 });
 
-/* cliente.save(function(err,room) {
-  console.log(room.id);
-})
-*/
-
 
 //Handlebars
 app.engine("handlebars", handlebars.engine({ defaultLayout: "main" }));
@@ -53,9 +46,10 @@ app.use("/", require("./routers/router.js")); //Trazendo multer, controller e ro
 app.get("/", (req, res) => {
   res.render("app");
 });
+
+
 //Routes
-/*
-Nursing
+
 
 app.get('/:id',(req,res)=>{
     res.send("Tá funcionando")
@@ -72,7 +66,8 @@ app.put('/:id',(req,res)=>{
 app.delete('/:id',(req,res)=>{
   res.send("Tá funcionando")
 });
-*/
+
+
 
 app.listen(9090, () => {
   console.log("Conectado");
