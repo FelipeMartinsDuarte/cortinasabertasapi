@@ -1,6 +1,6 @@
-const { STATUS_CODES } = require("http");
 const multer = require("multer");
 const path = require("path");
+const route = require("express").Router();
 const images = require("../models/images");
 
 // set storage
@@ -28,6 +28,7 @@ var store = multer({
 });
 
 //verifying file extension
+
 function checkFileType(file, cb) {
   const filetypes = /jpeg|jpg|png/;
 
@@ -38,8 +39,12 @@ function checkFileType(file, cb) {
   if (mimetype && extname) {
     return cb(null, true);
   } else {
-    cb("Envie uma imagem por favor");
+    cb("Isto não é um arquivo");
   }
+
+  
 }
+
+
 
 module.exports = store;
