@@ -50,25 +50,25 @@ app.get("/", (req, res) => {
 
 //Routes
 
+/* app.get('/:id',(req,res)=>{
+  res.send("Tá funcionando")
+}); */
 
-app.get('/:id',(req,res)=>{
-    res.send("Tá funcionando")
+/*app.post('/:id',(req,res)=>{
+res.send("Tá funcionando")
 });
 
-app.post('/:id',(req,res)=>{
-  res.send("Tá funcionando")
-});
-
-app.put('/:id',(req,res)=>{
-  res.send("Tá funcionando")
+/* app.put('/:id',(req,res)=>{
+res.send("Tá funcionando")
 });
 
 app.delete('/:id',(req,res)=>{
-  res.send("Tá funcionando")
+res.send("Tá funcionando")
 });
 
-
+*/
 
 app.listen(9090, () => {
   console.log("Conectado");
-});
+}); 
+
