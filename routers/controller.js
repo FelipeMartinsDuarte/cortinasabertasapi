@@ -3,6 +3,10 @@ const fs = require("fs"); //para ler o arquivo e converter
 const { none } = require("./multer");
 const multer = require("multer");
 
+/*exports.forms = (req, res) =>{
+  res.send("Felipe");
+}*/
+
 exports.uploads = async (req, res, next) => {
 
   const files = req.files;
