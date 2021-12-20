@@ -44,6 +44,7 @@ exports.addteamitem = (req, res) => {
     try {
       //Push itens
       let array = [];
+
       array.push(teamlist, teamlist2, teamlist3);
       //White-list values
       let permitedValues = values;
@@ -65,7 +66,7 @@ exports.addteamitem = (req, res) => {
           await res.status(200).json({ msg: "Item enviado com sucesso" });
         }
       }
-    } catch {
+  }catch {
       await res.status(500).json({ Error: "Erro inesperado, tente novamente" });
     }
   }
