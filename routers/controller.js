@@ -73,9 +73,9 @@ exports.uploads = async (req, res, next) => {
     });
 };
 
+
 //Add item to team
 exports.addteamitem = (req, res) => {
-
   teamoptions
     .find()
     .select("name")
@@ -84,7 +84,8 @@ exports.addteamitem = (req, res) => {
       catchvalue(doc);
     });
 
-  function catchvalue(doc) {
+  async function catchvalue(doc) {
+    try{
     var allowthisvalues = [];
     var lenght = 0;
     //Converting to json and javascript object
@@ -99,13 +100,17 @@ exports.addteamitem = (req, res) => {
     for (let i = 0; i < lenght; i++) {
       allowthisvalues.push(parser[i].name);
     }
-
-    receiveitem(allowthisvalues);
+    await verificator(allowthisvalues);
+  }catch{
+    await res.status(500).json({ Error: "Não conseguimos achar os items" })
+  }
   }
 
+  //Handling post values
   var { teamlist, teamlist2, teamlist3 } = req.body;
 
-  function receiveitem(values) {
+  async function verificator(values) {
+    try{
     //Push itens
     let array = [];
     array.push(teamlist, teamlist2, teamlist3);
@@ -118,16 +123,19 @@ exports.addteamitem = (req, res) => {
       teamlist2 === teamlist3 ||
       teamlist === teamlist3
     ) {
-      return res.status(409).json({ Error: "Você selecionou itens iguais" });
+      await res.status(409).json({ Error: "Você selecionou itens iguais" });
     } else {
       //Verify valid value
       let allFounded = array.every((ai) => permitedValues.includes(ai));
 
       if (!allFounded) {
-        return res.status(400).json({ Error: "Algum item é invalido" });
+        await res.status(400).json({ Error: "Algum item é invalido" });
       } else {
-        return res.status(200).json({ msg: "Item enviado com sucesso" });
+        await res.status(200).json({ msg: "Item enviado com sucesso" });
       }
     }
+  }catch{
+    await res.status(500).json({ Error: "Erro inesperado, tente novamente" })
+  }
   }
 };
