@@ -1,11 +1,11 @@
 const route = require("express").Router();
-const imgadd = require("./imageadd");
-const teamadd = require("./teamadd");
+const imgadd = require("./controllers/imageadd");
+const teamadd = require("./controllers/teamadd");
 const mongoose = require("mongoose");
 const teamoptions = require("../models/teamoptions");
 const bodyParser = require("body-parser");
-const { none } = require("./multer");
-const multer = require("./multer");
+const { none } = require("./middlewares/multer");
+const multer = require("./middlewares/multer");
 route.use(bodyParser.json()); // to support JSON bodies
 route.use(bodyParser.urlencoded({ extended: true }));
 

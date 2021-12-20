@@ -1,7 +1,7 @@
 const route = require("express").Router();
-const imageModel = require("../models/images");
+const imageModel = require("../../models/images");
 const fs = require("fs"); //para ler o arquivo e converter
-const { none } = require("./multer");
+const { none } = require("../middlewares/multer");
 const multer = require("multer");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");

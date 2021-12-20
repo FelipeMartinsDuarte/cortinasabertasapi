@@ -1,7 +1,7 @@
 const multer = require("multer");
 const path = require("path");
 const route = require("express").Router();
-const images = require("../models/images");
+const images = require("../../models/images");
 
 // set storage
 var storage = multer.diskStorage({
