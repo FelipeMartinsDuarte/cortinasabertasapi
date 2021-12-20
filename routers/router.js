@@ -11,15 +11,11 @@ route.use(bodyParser.urlencoded({ extended: true }));
 //Caso queira uma imagem mudarpara multer.single('images') obs:usaremos no logo
 route.post("/uploadmultiple", multer.array("images", 12), controller.uploads);
 
-/* teamoptions
-.find({}, function(err,doc){
-    console.log(doc);
-}).select('name')
-*/
+
 
 route.post("/uploadform", (req, res) => {
   
-  
+    
     teamoptions
     .find()
     .select("name")
@@ -40,7 +36,8 @@ route.post("/uploadform", (req, res) => {
 
 
   var { teamlist, teamlist2, teamlist3 } = req.body;
-  const permitedValues = ["Medicos", "Fonologos", "Enfermeiros", "Psicologos"];
+  const permitedValues = ['Medicos','Enfermeiros','Psicologos','Fonologos'];
+  console.log(permitedValues);
 
   if (
     teamlist === teamlist2 ||
