@@ -6,8 +6,9 @@ const spotoptionsSchema = new mongoose.Schema({
         require:true
     },
     icon:{
-        type:String,
-        require:true
+        type: mongoose.SchemaTypes.ObjectId,
+        ref: './models/images',
+        required:true
     }
 })
 

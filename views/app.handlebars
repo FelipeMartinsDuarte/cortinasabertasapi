@@ -1,64 +1,3 @@
-<form id="Perfil" action="/uploadform" method="post">
-    <div class="confirmyesnot">
-    <p>Aceitam longa estadia?</p>
-    <label for="yes">Sim</label>
-    <input type="radio" value="true" name="yesnot" id="yes">
-    <label for="not">Não</label>
-    <input type="radio" value="false" name="yesnot" id="not">
-    </div>
-
-    <div class="confirmyesnot">
-    <p>Aceitam curta estadia?</p>
-    <label for="yes">Sim</label>
-    <input type="radio" value="true" name="Yesnot1" id="yes">
-    <label for="not">Não</label>
-    <input type="radio" value="false" name="Yesnot1" id="not">
-    </div>
-
-    <div class="confirmyesnot">
-    <p>Aceitam pessoas Independentes?</p>
-    <label for="yes">Sim</label>
-    <input type="radio" value="true" name="Yesnot2" id="yes">
-    <label for="not">Não</label>
-    <input type="radio" value="false" name="Yesnot2" id="not">
-    </div>
-
-    <div class="confirmyesnot">
-    <p>Aceitam pessoas Semi-Dependentes?</p>
-    <label for="yes">Sim</label>
-    <input type="radio" value="true" name="Yesnot3" id="yes">
-    <label for="not">Não</label>
-    <input type="radio" value="false" name="Yesnot3" id="not">
-    </div>
-
-    <div class="confirmyesnot">
-    <p>Possuem Quartos Coletivos?</p>
-    <label for="yes">Sim</label>
-    <input type="radio" value="true" name="Yesnot4" id="yes">
-    <label for="not">Não</label>
-    <input type="radio" value="false" name="Yesnot4" id="not">
-    </div>
-
-    <div class="confirmyesnot">
-    <p>Possuem Quartos Individuais?</p>
-    <label for="yes">Sim</label>
-    <input type="radio" value="true" name="Yesnot5" id="yes">
-    <label for="not">Não</label>
-    <input type="radio" value="false" name="Yesnot5" id="not">
-    </div>
-
-    <div class="confirmyesnot">
-    <p>Aceitam pessoas Dependentes?</p>
-    <label for="yes">Sim</label>
-    <input type="radio" value="true" name="Yesnot6" id="yes">
-    <label for="not">Não</label>
-    <input type="radio" value="false" name="Yesnot6" id="not">
-    
-    <br /><input type= "submit">
-    </div>
-
-</form><br />
-
 <h5>Envie imagens 1-13</h5>
 <form method="post" action="/uploadmultiple" enctype="multipart/form-data">
 <input method="post" type="file" name="images" id="formFile" multiple>
@@ -71,60 +10,30 @@
 <input type= "submit">
 </form><br />
 
+
+
 <h5>Adicione sua equipe</h5>
-<form id="addteam" action="#" method="post">
-<input type="search">
-//No Frontend linckaremos uma função para pegar do backend, como button onclick="" temos que usar eventlistener;
-<button onclick="addvalue">Adicionar</button></br> 
+<form id="addteam" action="/uploadform" method="post">
+<select name="teamlist">
+    <option value="Medicos">Medicos</option>
+    <option value="Enfermeiros">Enfermeiros</option>
+    <option value="Fonologos">Fonologos</option>
+    <option value="Psicologos">Psicologos</option>
+</select><br /><br />
+<select name="teamlist2">
+    <option value="Medicos">Medicos</option>
+    <option value="Enfermeiros">Enfermeiros</option>
+    <option value="Fonologos">Fonologos</option>
+    <option value="Psicologos">Psicologos</option>
+</select><br /><br />
+<select name="teamlist3">
+    <option value="Medicos">Medicos</option>
+    <option value="Enfermeiros">Enfermeiros</option>
+    <option value="Fonologos">Fonologos</option>
+    <option value="Psicologos">Psicologos</option>
+</select><br /><br />
 <input type="submit">
 </form>
-
-<h5>Adicione sua estrutura</h5>
-<form id="addstructure" action="#" method="post">
-<input type="search">
-<button>Adicionar</button></br>
-<input type="submit">
-</form>
-
-<h5>Adicione detalhes sobre acessibilidade na sua estrutura</h5>
-<form id="addaccessibility" action="#" method="post">
-<input type="search">
-<button>Adicionar</button></br>
-<input type="submit">
-</form>
-
-<h5>Adicione espaço oferecido</h5>
-<form id="addplot" action="#" method="post">
-<input type="search">
-<button>Adicionar</button></br>
-<input type="submit">
-</form>
-
-<h5>Contato</h5>
-<form id="addcontact" action="#" method="post">
-    <label for="Site">Site</label>
-    <input type="text" id="Site">
-    <label for="Telc">Telefone contato #1</label>
-    <input type="text" id="Telc">
-    <label for="Telc2">Telefone contato #2</label>
-    <input type="text" id="Telc2"><br />
-    <label for="Horaberto">Horario Aberto a visitação</label>
-    <input type="time" id="Horaberto"> as
-    <input type="time" id="Horaberto">
-    <br /><input type= "submit">
-</form></br>
-
-<form id="adddescription" action="#" method="post">
-    <h5>Diga sobre vocês</h5>
-    <textarea id="Descricao"></textarea>
-    <br /><input type= "submit">
-</form>
-
-<script>
-    function addvalue(){
-        console.log("Felipe")
-    }
-</script>
 
 
 

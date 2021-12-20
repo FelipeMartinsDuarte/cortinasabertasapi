@@ -4,6 +4,7 @@ const app = express();
 const handlebars = require("express-handlebars");
 const ClientuserModel = require("./models/clientuser");
 const NursingModel = require("./models/nursing");
+const teamoptions = require("./models/teamoptions");
 
 //Configurations - Importing database and models
 mongoose.connect("mongodb://localhost:27017/cortinasabertas");
@@ -34,6 +35,7 @@ documents:{
     },
 own: "61bf28d45c5c3b254caa10c1",
 });
+
 
 
 //Handlebars
