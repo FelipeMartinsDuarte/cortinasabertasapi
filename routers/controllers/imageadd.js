@@ -1,12 +1,9 @@
 const route = require("express").Router();
-const imageModel = require("../../models/images");
 const fs = require("fs"); //para ler o arquivo e converter
-const { none } = require("../middlewares/multer");
-const multer = require("multer");
+const imageModel = require("../../models/images");
 const mongoose = require("mongoose");
-const bodyParser = require("body-parser");
-route.use(bodyParser.json()); // to support JSON bodies
-route.use(bodyParser.urlencoded({ extended: true }));
+const multer = require("multer");
+const { none } = require("../middlewares/multer");
 
 //Uploading files
 exports.uploads = async (req, res, next) => {
