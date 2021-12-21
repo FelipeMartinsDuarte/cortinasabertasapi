@@ -4,6 +4,7 @@ const app = express();
 const handlebars = require("express-handlebars");
 const ClientuserModel = require("./models/clientuser");
 const QuantityModel = require("./models/quantityoptions");
+const SpotModel = require("./models/spotoptions");
 const AccessibilityModel = require("./models/accessibilityoptions");
 const NursingModel = require("./models/nursing");
 const teamoptions = require("./models/teamoptions");

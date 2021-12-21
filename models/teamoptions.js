@@ -7,7 +7,8 @@ const teamoptionsSchema = new mongoose.Schema({
         unique:true
     },
     icon:{
-        type:String,
+        type: mongoose.SchemaTypes.ObjectId,
+        ref: './models/images',
         required:true
     }
 })

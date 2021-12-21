@@ -40,6 +40,13 @@ const nursingSchema = new mongoose.Schema({
         },
     },
 
+    contato:{
+        website:String,
+        tel1:String,
+        tel2:String, 
+        openhours: [String]
+    },
+
     owner:{
         type: mongoose.SchemaTypes.ObjectId,
         ref: './models/clientuser'
