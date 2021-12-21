@@ -1,6 +1,6 @@
 const route = require("express").Router();
 const mongoose = require("mongoose");
-const acessibilityModel = require("../../models/accessibilityoptions");
+const acessibilityModel = require("../../../models/accessibilityoptions");
 const bodyParser = require("body-parser");
 const slugify = require("slugify");
 route.use(bodyParser.json()); // to support JSON bodies
