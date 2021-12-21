@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const app = express();
 const handlebars = require("express-handlebars");
 const ClientuserModel = require("./models/clientuser");
+const QuantityModel = require("./models/quantityoptions");
 const NursingModel = require("./models/nursing");
 const teamoptions = require("./models/teamoptions");
 
@@ -35,6 +36,7 @@ let cliente = new ClientuserModel({
   },
   own: "61bf28d45c5c3b254caa10c1",
 });
+
 
 //Handlebars
 app.engine("handlebars", handlebars.engine({ defaultLayout: "main" }));

@@ -4,6 +4,7 @@ const teamoptions = require("../models/teamoptions");
 const imgadd = require("./controllers/imageadd");
 const addprof = require("./controllers/profileadd")
 const teamadd = require("./controllers/teamadd");
+const quantityadd = require("./controllers/quantityadd");
 const { none } = require("./middlewares/multer");
 const multer = require("./middlewares/multer");
 const bodyParser = require("body-parser");
@@ -16,5 +17,7 @@ route.post("/uploadmultiple", multer.array("images", 12), imgadd.uploads);
 route.post("/uploadform", teamadd.addteamitem);
 
 route.post("/uploadprofile", addprof.addprofile);
+
+route.post("/addquantity", quantityadd.addquantities);
 
 module.exports = route;
