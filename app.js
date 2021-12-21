@@ -4,6 +4,7 @@ const app = express();
 const handlebars = require("express-handlebars");
 const ClientuserModel = require("./models/clientuser");
 const QuantityModel = require("./models/quantityoptions");
+const AccessibilityModel = require("./models/accessibilityoptions");
 const NursingModel = require("./models/nursing");
 const teamoptions = require("./models/teamoptions");
 
@@ -36,6 +37,11 @@ let cliente = new ClientuserModel({
   },
   own: "61bf28d45c5c3b254caa10c1",
 });
+let accessibility = new AccessibilityModel({
+  name:"Possui rampas",
+  icon:"61c1d5897997ad94cc6b40de"
+})
+
 
 
 //Handlebars
