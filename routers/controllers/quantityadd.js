@@ -44,20 +44,23 @@ exports.addquantities = (req, res) => {
   }
 
   var { quantification, quantification2, qntynumber, qntynumber2 } = req.body;
+  var todosjuntos = [];
+  todosjuntos.push(quantification, quantification2);
 
   async function verificator(values) {
     try {
       //Push itens
+      let data = new Array();
       let array = [];
+      let number = [];
       array.push(quantification, quantification2);
+      number.push(qntynumber, qntynumber2);
 
       //White-list values
       let permitedValues = values;
 
       //Verify duplicate files
-      if (
-        quantification === quantification2
-      ) {
+      if (quantification === quantification2) {
         await res.status(409).json({ Error: "Você selecionou itens iguais" });
       } else {
         //Verify valid value
@@ -66,15 +69,15 @@ exports.addquantities = (req, res) => {
         if (!allFounded) {
           await res.status(400).json({ Error: "Algum item é invalido" });
         } else {
+          //Joining values to key-value
+          for (let i = 0; i < todosjuntos.length; i++) {
+            data.push({ name: array[i], value: number[i] });
+          }
           await res.status(200).json({ msg: "Item enviado com sucesso" });
         }
       }
-
-  }catch {
+    } catch {
       await res.status(500).json({ Error: "Erro inesperado, tente novamente" });
     }
-
-
   }
-
 };
