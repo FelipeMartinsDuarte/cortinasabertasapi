@@ -4,6 +4,24 @@
 <input type= "submit">
 </form>
 
+<!--Iremos replicar para o cliente só que adicionariamos a classe own-->
+<!--Temos de fazer igual xd e adicionar o primeiro ao cache e depois no segundo cadastramos-->
+<h5>Cadastro user/cliente</h5>
+<form id="registrar" method="post" action="/registerone" >
+<p>Nome</p>
+<input name="name" type="text"><br/><br/>
+<p>Email</p>
+<input name="email" type="email"><br/><br/>
+<input type="submit">
+</form><br/><br/>
+
+<h5>Login user/cliente</h5>
+<form id="login" method="post" action="/loginone">
+<p>Email</p>
+<input name="email" type="email"><br/><br/>
+<input type="submit">
+</form>
+
 <h5>Envie logo</h5>
 <form method="post" action="/uploadsingle" enctype="multipart/form-data">
 <input method="post" type="file" name="logo" id="formFile">

@@ -7,6 +7,10 @@ const teamadd = require("./controllers/teamadd");
 const quantityadd = require("./controllers/quantityadd");
 const accessibilityadd = require("./controllers/accessibilityadd");
 const contactadd = require("./controllers/contactadd");
+const registeroneadd = require("./controllers/registeroneadd");
+const registertwoadd = require("./controllers/registertwoadd");
+const loginoneadd = require("./controllers/loginone");
+const logintwoadd = require("./controllers/logintwo");
 const spotadd = require("./controllers/spotadd");
 const { none } = require("./middlewares/multer");
 const multer = require("./middlewares/multer");
@@ -28,5 +32,14 @@ route.post("/addaccessibility", accessibilityadd.accessibilities);
 route.post("/addspot", spotadd.addspoties)
 
 route.post("/addcontact", contactadd.contactingadd)
+
+route.post("/registerone", registeroneadd.addregister)
+
+route.post("/registertwo", registertwoadd.addregister);
+
+route.post("/loginone", loginoneadd.loginone);
+
+route.post("/logintwo", logintwoadd.logintwo);
+
 
 module.exports = route;

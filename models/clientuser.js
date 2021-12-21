@@ -6,9 +6,15 @@ const clienteuserSchema = new mongoose.Schema({
         type:String
     },
 
+    isAdmin:{
+        type:Number,
+        default:0
+    },
+
     credential:{
         email: {
             type: String,
+            required: true
         },
         password: {
             type: String,

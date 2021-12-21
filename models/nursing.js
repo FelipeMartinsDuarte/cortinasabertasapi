@@ -40,10 +40,9 @@ const nursingSchema = new mongoose.Schema({
         },
     },
 
-    contato:{
+    contact:{
         website:String,
-        tel1:String,
-        tel2:String, 
+        telephone:[String],
         openhours: [String]
     },
 
