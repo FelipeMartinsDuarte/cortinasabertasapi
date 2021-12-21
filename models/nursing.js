@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const clienteuser = require("./clientuser");
 
 const nursingSchema = new mongoose.Schema({
 
@@ -9,28 +10,28 @@ const nursingSchema = new mongoose.Schema({
     services:{
         team:{
             type: Array,
-            require: true
+            required: true
         },
         profile:{
             type: Array,
-            require: true
+            required: true
         },
         place: {
             quantity:{
                 type: Array,
-                require: true
+                required: true
             },
             accessibility:{
                 type: Array,
-                require: true
+                required: true
             },
             spot:{
                 type: Array,
-                require: true   
+                required: true   
             },
             description:{
                 type: String,
-                require: true   
+                required: true   
             },
 
             images:{
@@ -40,7 +41,8 @@ const nursingSchema = new mongoose.Schema({
     },
 
     owner:{
-        type: String
+        type: mongoose.SchemaTypes.ObjectId,
+        ref: './models/clientuser'
     },
 
     tags:{

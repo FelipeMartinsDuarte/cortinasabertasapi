@@ -1,4 +1,98 @@
+<h5>Envie imagens 1-13</h5>
 <form method="post" action="/uploadmultiple" enctype="multipart/form-data">
 <input method="post" type="file" name="images" id="formFile" multiple>
 <input type= "submit">
 </form>
+
+<h5>Envie logo</h5>
+<form method="post" action="/uploadsingle" enctype="multipart/form-data">
+<input method="post" type="file" name="logo" id="formFile">
+<input type= "submit">
+</form><br />
+
+<h5>Quantificação</h5>
+<form  id="Quantity" method="post" action="/addquantity" >
+<select name="quantification">
+    <option value="Media-de-camas-por-quarto">Numero de camas</option>
+    <option value="Quantidade-de-Banheiros">Numero de banheiros</option>
+    <option value="Quantidade-de-Quartos">Numero de quartos</option>
+</select><br /><br />
+<input type="number" name="qntynumber"><br /><br />
+
+<select name="quantification2">
+    <option value="Media-de-camas-por-quarto">Numero de camas</option>
+    <option value="Quantidade-de-Banheiros">Numero de banheiros</option>
+    <option value="Quantidade-de-Quartos">Numero de quartos</option>
+</select><br /><br />
+<input type="number" name="qntynumber2"><br /><br />
+
+
+<input type="submit">
+</form>
+
+<h5>Perfil</h5>
+<form id="Confirm" action="/uploadprofile" method="post">
+<select name="Confirm1">
+    <option value="true">Sim</option>
+    <option value="false">Não</option>
+</select><br/><br/>
+<select name="Confirm2">
+    <option value="true">Sim</option>
+    <option value="false">Não</option>
+</select><br/><br/>
+<select name="Confirm3">
+    <option value="true">Sim</option>
+    <option value="false">Não</option>
+</select><br/><br/>
+<select name="Confirm4">
+    <option value="true">Sim</option>
+    <option value="false">Não</option>
+</select><br/><br/>
+<select name="Confirm5">
+    <option value="true">Sim</option>
+    <option value="false">Não</option>
+</select><br/><br/>
+<select name="Confirm6">
+    <option value="true">Sim</option>
+    <option value="false">Não</option>
+</select><br/><br/>
+<select name="Confirm7">
+    <option value="true">Sim</option>
+    <option value="false">Não</option>
+</select><br/><br/>
+<input type="submit">
+</form><br/>
+
+
+
+
+
+
+
+
+<h5>Adicione sua equipe</h5>
+<form id="addteam" action="/uploadform" method="post">
+<select name="teamlist">
+    <option value="Médicos">Médicos</option>
+    <option value="Enfermagem">Enfermagem</option>
+    <option value="Nutricionistas">Nutricionistas</option>
+</select><br /><br />
+<select name="teamlist2">
+    <option value="Médicos">Médicos</option>
+    <option value="Enfermagem">Enfermagem</option>
+    <option value="Nutricionistas">Nutricionistas</option>
+</select><br /><br />
+<select name="teamlist3">
+    <option value="Médicos">Médicos</option>
+    <option value="Enfermagem">Enfermagem</option>
+    <option value="Nutricionistas">Nutricionistas</option>
+</select><br /><br />
+<input type="submit">
+</form>
+
+
+
+
+
+
+

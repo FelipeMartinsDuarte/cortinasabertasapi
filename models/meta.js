@@ -18,11 +18,11 @@ const metaSchema = new mongoose.Schema({
     opnions:{
         name:{
             type:String,
-            require:true
+            required:true
         },
         rating: {
             type:Number,
-            require:true
+            required:true
         },
         comment:{
             type:String,

@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const nursing = require("./nursing");
 
 const clienteuserSchema = new mongoose.Schema({
     name:{
@@ -10,7 +11,8 @@ const clienteuserSchema = new mongoose.Schema({
             type: String,
         },
         password: {
-            require:true
+            type: String,
+            required:true
         }
     },
 
@@ -19,12 +21,13 @@ const clienteuserSchema = new mongoose.Schema({
             type: String,
         },
         cnpj: {
-            type: Number,
+            type: Number
         }
     },
 
     own:{
-        type: String
+        type: mongoose.SchemaTypes.ObjectId,
+        ref: './models/nursing'
     }
 
 })
@@ -32,3 +35,5 @@ const clienteuserSchema = new mongoose.Schema({
 const clienteuser = mongoose.model('clientuser', clienteuserSchema);
 
 module.exports = clienteuser;
+
+
