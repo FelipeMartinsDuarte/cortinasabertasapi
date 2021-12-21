@@ -5,6 +5,7 @@ const imgadd = require("./controllers/imageadd");
 const addprof = require("./controllers/profileadd")
 const teamadd = require("./controllers/teamadd");
 const quantityadd = require("./controllers/quantityadd");
+const accessibilityadd = require("./controllers/accessibilityadd");
 const { none } = require("./middlewares/multer");
 const multer = require("./middlewares/multer");
 const bodyParser = require("body-parser");
@@ -19,5 +20,7 @@ route.post("/uploadform", teamadd.addteamitem);
 route.post("/uploadprofile", addprof.addprofile);
 
 route.post("/addquantity", quantityadd.addquantities);
+
+route.post("/addaccessibility", accessibilityadd.accessibilities);
 
 module.exports = route;
