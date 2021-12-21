@@ -11,6 +11,9 @@ exports.addprofile = (req, res) => {
   var{Confirm1,Confirm2,Confirm3,Confirm4,Confirm5,Confirm6,Confirm7} = req.body;
   //Bending values
   var ai = [Confirm1,Confirm2,Confirm3,Confirm4,Confirm5,Confirm6,Confirm7];
+  var ji = ["a","b","c","d","e","f","g"]
+  var data = new Array();
+
   //New values converted to boolean
   var convert = [];
   
@@ -25,11 +28,17 @@ exports.addprofile = (req, res) => {
         //Invalid value
     }
   }
+   
   //converting and appending
   ai.forEach(item =>{
       var value = converting(item);
       convert.push(value);
   })
+
+  //Joing values to ji on the new array as object {name:, value:}
+  for(let i= 0; i<7; i++){
+      data.push({name: ji[i], value: convert[i]})
+  }
 
   return res.status(200).json({ msg: "Item enviado com sucesso" });
 }
