@@ -2,6 +2,7 @@ const route = require("express").Router();
 const mongoose = require("mongoose");
 const teamoptions = require("../models/teamoptions");
 const imgadd = require("./controllers/imageadd");
+const addprof = require("./controllers/profileadd")
 const teamadd = require("./controllers/teamadd");
 const { none } = require("./middlewares/multer");
 const multer = require("./middlewares/multer");
@@ -13,5 +14,7 @@ route.use(bodyParser.urlencoded({ extended: true }));
 route.post("/uploadmultiple", multer.array("images", 12), imgadd.uploads);
 
 route.post("/uploadform", teamadd.addteamitem);
+
+route.post("/uploadprofile", addprof.addprofile);
 
 module.exports = route;
