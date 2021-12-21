@@ -10,8 +10,35 @@
 <input type= "submit">
 </form><br />
 
+<h5>Adicionar Espaço</h5>
+<form id="adicionar-item" method="post" action="/addspot" >
+<select name="spot">
+    <option value="Area-de-TV">Área de TV</option>
+    <option value="Area-de-Visitas">Área de Visitas</option>
+    <option value="Espaco-do-Sol">Espaço do Sol</option>
+    </select><br /><br />
+    <input type="text" value="Adicione o ID da Logo"><br /><br />
+    <input type= "submit">
+</form><br />
+
+
+<h5>Acessibilidade</h5>
+<form id="Acessibility" method="post" action="/addaccessibility">
+<select name="accessibility">
+    <option value="Possui-rampas">Possui rampas</option>
+    <option value="Possui-moveis-planejados">Possui moveis planejados</option>
+</select><br /><br />
+<select name="accessibility2">
+    <option value="Possui-rampas">Possui rampas</option>
+    <option value="Possui-moveis-planejados">Possui moveis planejados</option>
+</select><br /><br />
+<input type="submit">
+</form>
+
+
+
 <h5>Quantificação</h5>
-<form  id="Quantity" method="post" action="/addquantity" >
+<form id="Quantity" method="post" action="/addquantity" >
 <select name="quantification">
     <option value="Media-de-camas-por-quarto">Numero de camas</option>
     <option value="Quantidade-de-Banheiros">Numero de banheiros</option>
