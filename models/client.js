@@ -6,13 +6,16 @@ const clienteuserSchema = new mongoose.Schema({
         type:String
     },
 
-    isAdmin:{
-        type:Number,
-        default:0
+    date:{
+        type:Date,
+        default: Date.now
     },
 
-    
     credential:{
+        acess:{ //User 0 x Client 1 x Admin 2 
+            type:Number,
+            default:1
+        },
         email: {
             type: String,
             required: true
@@ -20,7 +23,12 @@ const clienteuserSchema = new mongoose.Schema({
         password: {
             type: String,
             required:true
+        },
+        emailverified:{
+            type:Boolean,
+            default:false
         }
+        //, third_party_auth: [ThirdPartyProviderSchema]
     },
 
     documents:{
@@ -38,8 +46,8 @@ const clienteuserSchema = new mongoose.Schema({
         type: mongoose.SchemaTypes.ObjectId,
         ref: './models/nursing'
     }
-
-})
+}, {strict: false}
+);
 
 const clienteuser = mongoose.model('clientuser', clienteuserSchema);
 

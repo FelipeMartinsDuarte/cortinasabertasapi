@@ -10,7 +10,7 @@ route.use(bodyParser.urlencoded({ extended: true }));
 exports.logintwo = (req,res,next) => {
  passport.authenticate('local',{
      successRedirect:'/',
-     failureRedirect: '/login',
+     failureRedirect: '/register',
      failureFlash: true
  })(req,res,next);
 }

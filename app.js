@@ -4,12 +4,16 @@ const app = express();
 const handlebars = require("express-handlebars");
 const QuantityModel = require("./models/quantityoptions");
 const SpotModel = require("./models/spotoptions");
-const session = require("express-session")
 const AccessibilityModel = require("./models/accessibilityoptions");
 const NursingModel = require("./models/nursing");
-const teamoptions = require("./models/teamoptions");
 const passport = require('passport');
+const flash = require('connect-flash');
+const session = require('express-session');
+const teamoptions = require("./models/teamoptions");
 
+
+// Passport Config
+require('./routers/server/passport')(passport);
 
 //Configurations - Importing database and models
 mongoose.connect("mongodb://localhost:27017/cortinasabertas");
@@ -33,9 +37,6 @@ let accessibility = new AccessibilityModel({
   name:"Possui rampas",
   icon:"61c1d5897997ad94cc6b40de"
 })
-
-//Passport config
-require('./config/passport')(passport);
 
 // Express session
 app.use(

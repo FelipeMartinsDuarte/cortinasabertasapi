@@ -1,15 +1,14 @@
 const LocalStrategy = require("passport-local").Strategy;
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
-
-// Load User Model
-const userModel = require("../models/user");
+const User = require("../../models/user");
 
 module.exports = function (passport) {
+
   passport.use(
     new LocalStrategy({ usernameField: "email" }, (email, password, done) => {
       //Find user
-      userModel
+      User
         .findOne({ "credential.email": email })
         .then((user) => {
           if (!user) {
@@ -42,3 +41,4 @@ module.exports = function (passport) {
     });
   });
 };
+

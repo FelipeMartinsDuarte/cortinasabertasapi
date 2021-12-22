@@ -1,6 +1,7 @@
 const route = require("express").Router();
 const mongoose = require("mongoose");
 const teamoptions = require("../../../../models/teamoptions");
+const User = require('../../../../models/user')
 const validator = require("validator");
 const bodyParser = require("body-parser");
 route.use(bodyParser.json()); // to support JSON bodies
@@ -17,6 +18,15 @@ exports.loginone = (req,res) => {
     if(!emailvalid){
       return res.status(400).json({ Error: "Digite um email valido" });
     }
-    
-    res.render("login", {email:email});
+
+    User
+    .findOne({ "credential.email": email })
+    .then((user)=>{
+      if(!user){
+      return res.status(400).json({ Error: "Este email não está cadastrado" });
+      } else{
+        res.render("login", {email:email});
+      }
+    })
+
 }
