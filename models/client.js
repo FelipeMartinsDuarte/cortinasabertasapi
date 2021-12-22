@@ -25,7 +25,9 @@ const clienteuserSchema = new mongoose.Schema({
 
     documents:{
         logo: {
-            type: String,
+            type: mongoose.SchemaTypes.ObjectId,
+            ref: './models/images',
+            default:"61c33c8495bb6564ecb0ad61"
         },
         cnpj: {
             type: Number

@@ -2,7 +2,6 @@ const express = require("express");
 const mongoose = require("mongoose");
 const app = express();
 const handlebars = require("express-handlebars");
-const ClientuserModel = require("./models/clientuser");
 const QuantityModel = require("./models/quantityoptions");
 const SpotModel = require("./models/spotoptions");
 const AccessibilityModel = require("./models/accessibilityoptions");
@@ -26,18 +25,7 @@ let nursing = new NursingModel({
   },
   owner: "61bf1bc2bd08f89ea5936753",
 });
-let cliente = new ClientuserModel({
-  name: "Felipe",
-  credential: {
-    email: "felipemartinsduarte@outlook.com.br",
-    password: "12345",
-  },
-  documents: {
-    logo: "https://yt3.ggpht.com/ytc/AKedOLTM6bGgJWtayEJrZHApYyJSaBqWLkMnXixAVvc85Q=s68-c-k-c0x00ffffff-no-rj",
-    cnpj: 5155115151,
-  },
-  own: "61bf28d45c5c3b254caa10c1",
-});
+
 let accessibility = new AccessibilityModel({
   name:"Possui rampas",
   icon:"61c1d5897997ad94cc6b40de"

@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const clienteuser = require("./clientuser");
+const clienteuser = require("./user");
 
 const nursingSchema = new mongoose.Schema({
 
@@ -48,7 +48,7 @@ const nursingSchema = new mongoose.Schema({
 
     owner:{
         type: mongoose.SchemaTypes.ObjectId,
-        ref: './models/clientuser'
+        ref: './models/client'
     },
 
     tags:{

@@ -1,6 +1,6 @@
 const route = require("express").Router();
 const mongoose = require("mongoose");
-const clientuserModel = require("../../../../models/clientuser");
+const userModel = require("../../../../models/user");
 const bodyParser = require("body-parser");
 route.use(bodyParser.json()); // to support JSON bodies
 route.use(bodyParser.urlencoded({ extended: true }));
@@ -8,8 +8,7 @@ route.use(bodyParser.urlencoded({ extended: true }));
 
 exports.addregister = (req,res) => {
 
-
-    const{password,confirmpassword} = req.body;
+    const{password,confirmpassword,email,name} = req.body;
 
     let errors = []
 
@@ -33,6 +32,11 @@ exports.addregister = (req,res) => {
     if(errors != []){
       return res.status(400).json(errors);
     } else{
-        const newClient = new clientuserModel({})
-    }
+        const newUser = new userModel({
+            name:name,
+            credential:{
+                email: email,
+                password: password
+            }}
+        )}
 }
