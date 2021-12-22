@@ -9,8 +9,9 @@ route.use(bodyParser.urlencoded({ extended: true }));
 exports.addregister = (req,res) => {
 
     const{password,confirmpassword,email,name} = req.body;
+    var strongRegex = new RegExp("^[a-zA-Z0-9]{8,}$");
 
-    let errors = []
+    let errors = new Array;
 
     //Check required fields
     if(!password || !confirmpassword) {
@@ -23,20 +24,21 @@ exports.addregister = (req,res) => {
     }
 
     //Check pass lenght
-    if(password.lenght > 7) {
-     //Empty value fixing bug of response being []
-    } else {
+    if(strongRegex.test(password) == false) {
         errors.push({Error: "A Senha deve ter ao menos 8 caracteres"})
-    }
+    } 
 
-    if(errors != []){
-      return res.status(400).json(errors);
+    if(errors.length){
+        return res.status(400).json(errors);
     } else{
         const newUser = new userModel({
             name:name,
             credential:{
                 email: email,
                 password: password
-            }}
-        )}
+            }})
+            
+        res.send("Felipe");
+    }
+
 }
