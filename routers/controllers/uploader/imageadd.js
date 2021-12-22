@@ -1,9 +1,10 @@
 const route = require("express").Router();
 const fs = require("fs"); //para ler o arquivo e converter
-const imageModel = require("../../models/images");
+const imageModel = require("../../../models/images");
 const mongoose = require("mongoose");
 const multer = require("multer");
-const { none } = require("../middlewares/multer");
+const { none } = require("../../middlewares/multer");
+
 
 //Uploading files
 exports.uploads = async (req, res, next) => {

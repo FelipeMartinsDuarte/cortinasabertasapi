@@ -1,23 +1,66 @@
+//Initialising application
 const express = require("express");
-const mongoose = require("mongoose");
 const app = express();
-const handlebars = require("express-handlebars");
+
+//Importing modules
+const handlebars = require("express-handlebars")
+const session = require('express-session');
+const flash = require('connect-flash');
+const mongoose = require("mongoose");
+const passport = require('passport');
+
+
+// Passport 
+require('./routers/passport/passport')(passport); 
+// Mongoose
+mongoose.connect("mongodb://localhost:27017/cortinasabertas"); 
+// Express
+app.use( 
+  session({
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true
+  })
+);
+//Passport
+app.use(passport.initialize());
+app.use(passport.session());
+//Handlebars
+app.engine("handlebars", handlebars.engine({ defaultLayout: "main" })); //Handlebars
+app.set("view engine", "handlebars");
+
+
+//Importing Models
 const QuantityModel = require("./models/quantityoptions");
 const SpotModel = require("./models/spotoptions");
 const AccessibilityModel = require("./models/accessibilityoptions");
 const NursingModel = require("./models/nursing");
-const passport = require('passport');
-const flash = require('connect-flash');
-const session = require('express-session');
 const teamoptions = require("./models/teamoptions");
 
 
-// Passport Config
-require('./routers/server/passport')(passport);
+//Global
 
-//Configurations - Importing database and models
-mongoose.connect("mongodb://localhost:27017/cortinasabertas");
+//Routes 
+app.use("/", require("./routers/router.js")); //Router: Singleupload, Multiupload
+app.use("/", require("./routers/services.js")); //Services: Spot, Accessibility, Quantity
+app.use("/", require("./routers/registerlogin.js")); //Register-Login: User: Login, Register
+app.use("/", require("./routers/details.js")); //Details: Profile 
 
+
+//Rendering
+app.get("/", (req, res) => {
+  res.render("app");
+});
+
+app.get("/register", (req, res) => {
+  res.render("register");
+});
+
+app.get("/login", (req,res) => {
+  res.render("login");
+})
+
+//Creating Models
 let nursing = new NursingModel({
   name: "Emadcare",
   services: {
@@ -38,57 +81,8 @@ let accessibility = new AccessibilityModel({
   icon:"61c1d5897997ad94cc6b40de"
 })
 
-// Express session
-app.use(
-  session({
-    secret: 'secret',
-    resave: true,
-    saveUninitialized: true
-  })
-);
-
-// Passport middleware
-app.use(passport.initialize());
-app.use(passport.session());
-
-//Handlebars
-app.engine("handlebars", handlebars.engine({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
-
-//Calling Routes
-app.use("/", require("./routers/router.js")); //Trazendo multer, controller e router
-
-//Renderizando pagina
-app.get("/", (req, res) => {
-  res.render("app");
-});
-
-app.get("/register", (req, res) => {
-  res.render("register");
-});
-
-app.get("/login", (req,res) => {
-  res.render("login");
-})
-
-//Routes
-
-/* app.get('/:id',(req,res)=>{
-  res.send("Tá funcionando")
-}); */
-
-/*app.post('/:id',(req,res)=>{
-res.send("Tá funcionando")
-});
-
-/* app.put('/:id',(req,res)=>{
-res.send("Tá funcionando")
-});
-
-app.delete('/:id',(req,res)=>{
-res.send("Tá funcionando")
-});*/
-
-app.listen(9090, () => {
-  console.log("Conectado");
+//Open Server
+var port = 9090;
+app.listen(port, () => {
+  console.log(`Conectado na porta ${port}`);
 });
