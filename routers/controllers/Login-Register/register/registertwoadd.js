@@ -1,7 +1,9 @@
 const route = require("express").Router();
 const mongoose = require("mongoose");
 const userModel = require("../../../../models/user");
+const bcrypt = require('bcrypt');
 const bodyParser = require("body-parser");
+const passport = require("passport");
 route.use(bodyParser.json()); // to support JSON bodies
 route.use(bodyParser.urlencoded({ extended: true }));
 
@@ -37,8 +39,25 @@ exports.addregister = (req,res) => {
                 email: email,
                 password: password
             }})
-            
-        res.send("Felipe");
-    }
+
+            // Hash Password
+            bcrypt.genSalt(10,(err,salt)=>{
+                bcrypt.hash(newUser.credential.password, salt, (err,hash)=>{
+                    if(err) throw err;
+
+                    //Set password to hashed
+                    newUser.credential.password = hash;
+                    //Save user
+                    newUser.save()
+                    .then(user => {
+                        res.redirect('/')
+                    })
+                    .catch(err=>{
+                        console.log(err);
+                    })
+
+                })
+            })
+        }
 
 }
