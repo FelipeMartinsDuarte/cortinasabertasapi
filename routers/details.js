@@ -19,5 +19,4 @@ route.post("/perfil", addprof.addprofile);
 
 route.post("/contato", contactadd.contactingadd)
 
-
 module.exports = route;

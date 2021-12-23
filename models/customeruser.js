@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const nursing = require("./nursing");
 
-const userSchema = new mongoose.Schema({
+const customeruserSchema = new mongoose.Schema({
     name:{
         type:String
     },
@@ -28,20 +28,31 @@ const userSchema = new mongoose.Schema({
             type:Boolean,
             default:false
         }
-        //,third_party_auth: [ThirdPartyProviderSchema]
+        //, third_party_auth: [ThirdPartyProviderSchema]
     },
 
-    logo: {
-        type: mongoose.SchemaTypes.ObjectId,
-        ref: './models/images',
-        default:"61c33c8495bb6564ecb0ad61"
-    }
+    documents:{
+        logo: {
+            type: mongoose.SchemaTypes.ObjectId,
+            ref: './images',
+            default:"61c33c8495bb6564ecb0ad61"
+        },
+        cnpj: {
+            type: Number
+        }
+    },
 
+    own:{
+        type: mongoose.SchemaTypes.ObjectId,
+        ref: './models/nursing'
+    },
+
+    completednursing: Boolean, //If already completed registering nursing
 }, {strict: false}
 );
 
-const user = mongoose.model('user', userSchema);
+const customeruser = mongoose.model('customeruser', customeruserSchema);
 
-module.exports = user;
+module.exports = customeruser;
 
 

@@ -1,37 +1,30 @@
 const mongoose = require("mongoose");
-const clienteuser = require("./user");
+const customeruser = require("./customeruser");
 
 const nursingSchema = new mongoose.Schema({
 
     name:{
         type: String,
-        require: true
     },
     services:{
         team:{
             type: Array,
-            required: true
         },
         profile:{
             type: Array,
-            required: true
         },
         place: {
             quantity:{
                 type: Array,
-                required: true
             },
             accessibility:{
                 type: Array,
-                required: true
             },
             spot:{
-                type: Array,
-                required: true   
+                type: Array, 
             },
             description:{
-                type: String,
-                required: true   
+                type: String, 
             },
 
             images:{
@@ -48,7 +41,7 @@ const nursingSchema = new mongoose.Schema({
 
     owner:{
         type: mongoose.SchemaTypes.ObjectId,
-        ref: './models/client'
+        ref: './customeruser'
     },
 
     tags:{
@@ -67,9 +60,18 @@ const nursingSchema = new mongoose.Schema({
         region:{
             type: String
         },
+    },
+
+    date:{
+        type:Date,
+        default: Date.now
     }
 });
 
 const nursing = mongoose.model('nursing', nursingSchema);
 
 module.exports = nursing;
+
+
+
+
