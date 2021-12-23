@@ -23,7 +23,6 @@ const imagesSchema = new mongoose.Schema({
     },
     uploader:{
         type:String,
-        required:true
     },
     loi:{ //Logo or Image, image=true, logo=false
         type:Boolean,
