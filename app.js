@@ -45,7 +45,7 @@ app.use("/", require("./routers/services.js")); //Services: Spot, Accessibility,
 app.use("/", require("./routers/registerlogin.js")); //Register-Login: User: Login, Register
 app.use("/", require("./routers/details.js")); //Details: Profile 
 app.use("/", require("./routers/items.js")); //Items: Options: Spot,Accesibility, Quantity, Team, Profile 
-
+app.use("/", require("./routers/nurses.js")); //Nurse home documents: Get,Delete,Update
 
 
 //Rendering
