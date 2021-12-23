@@ -9,9 +9,9 @@ const flash = require('connect-flash');
 const mongoose = require("mongoose");
 const passport = require('passport');
 
-
+//Configuring Modules
 // Passport 
-require('./routers/passport/passport')(passport); 
+require('./routers/middlewares/passport')(passport); 
 // Mongoose
 mongoose.connect("mongodb://localhost:27017/cortinasabertas"); 
 // Express
