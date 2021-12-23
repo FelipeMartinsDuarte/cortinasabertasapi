@@ -1,6 +1,6 @@
 const route = require("express").Router();
 const mongoose = require("mongoose");
-const userModel = require("../../../../models/user");
+const customeruserModel = require("../../../../models/customeruser");
 const bcrypt = require('bcrypt');
 const bodyParser = require("body-parser");
 const passport = require("passport");
@@ -33,7 +33,7 @@ exports.addregister = (req,res) => {
     if(errors.length){
         return res.status(400).json(errors);
     } else{
-        const newUser = new userModel({
+        const newUser = new customeruserModel({
             name:name,
             credential:{
                 email: email,

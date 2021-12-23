@@ -7,7 +7,7 @@ const spotoptionsSchema = new mongoose.Schema({
     },
     icon:{
         type: mongoose.SchemaTypes.ObjectId,
-        ref: './models/images',
+        ref: './images',
     }
 })
 
