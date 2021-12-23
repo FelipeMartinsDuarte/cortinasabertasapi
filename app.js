@@ -9,7 +9,7 @@ const flash = require('connect-flash');
 const mongoose = require("mongoose");
 const passport = require('passport');
 
-//Configuring Modules
+//Configuring Modules~
 // Passport 
 require('./routers/middlewares/passport')(passport); 
 // Mongoose
@@ -26,7 +26,7 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 //Handlebars
-app.engine("handlebars", handlebars.engine({ defaultLayout: "main" })); //Handlebars
+app.engine("handlebars", handlebars.engine({ defaultLayout: "main" })); 
 app.set("view engine", "handlebars");
 
 
@@ -39,7 +39,6 @@ const teamoptions = require("./models/teamoptions");
 
 
 //Global
-
 //Routes 
 app.use("/", require("./routers/router.js")); //Router: Singleupload, Multiupload
 app.use("/", require("./routers/services.js")); //Services: Spot, Accessibility, Quantity
