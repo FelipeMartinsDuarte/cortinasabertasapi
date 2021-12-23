@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const clienteuser = require("./clientuser");
+const clienteuser = require("./user");
 
 const nursingSchema = new mongoose.Schema({
 
@@ -40,9 +40,15 @@ const nursingSchema = new mongoose.Schema({
         },
     },
 
+    contact:{
+        website:String,
+        telephone:[String],
+        openhours: [String]
+    },
+
     owner:{
         type: mongoose.SchemaTypes.ObjectId,
-        ref: './models/clientuser'
+        ref: './models/client'
     },
 
     tags:{

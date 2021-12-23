@@ -1,15 +1,65 @@
+//Initialising application
 const express = require("express");
-const mongoose = require("mongoose");
 const app = express();
-const handlebars = require("express-handlebars");
-const ClientuserModel = require("./models/clientuser");
+
+//Importing modules
+const handlebars = require("express-handlebars")
+const session = require('express-session');
+const flash = require('connect-flash');
+const mongoose = require("mongoose");
+const passport = require('passport');
+
+//Configuring Modules~
+// Passport 
+require('./routers/middlewares/passport')(passport); 
+// Mongoose
+mongoose.connect("mongodb://localhost:27017/cortinasabertas"); 
+// Express
+app.use( 
+  session({
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true
+  })
+);
+//Passport
+app.use(passport.initialize());
+app.use(passport.session());
+//Handlebars
+app.engine("handlebars", handlebars.engine({ defaultLayout: "main" })); 
+app.set("view engine", "handlebars");
+
+
+//Importing Models
 const QuantityModel = require("./models/quantityoptions");
+const SpotModel = require("./models/spotoptions");
+const AccessibilityModel = require("./models/accessibilityoptions");
 const NursingModel = require("./models/nursing");
 const teamoptions = require("./models/teamoptions");
 
-//Configurations - Importing database and models
-mongoose.connect("mongodb://localhost:27017/cortinasabertas");
 
+//Global
+//Routes 
+app.use("/", require("./routers/router.js")); //Router: Singleupload, Multiupload
+app.use("/", require("./routers/services.js")); //Services: Spot, Accessibility, Quantity
+app.use("/", require("./routers/registerlogin.js")); //Register-Login: User: Login, Register
+app.use("/", require("./routers/details.js")); //Details: Profile 
+
+
+//Rendering
+app.get("/", (req, res) => {
+  res.render("app");
+});
+
+app.get("/register", (req, res) => {
+  res.render("register");
+});
+
+app.get("/login", (req,res) => {
+  res.render("login");
+})
+
+//Creating Models
 let nursing = new NursingModel({
   name: "Emadcare",
   services: {
@@ -24,49 +74,14 @@ let nursing = new NursingModel({
   },
   owner: "61bf1bc2bd08f89ea5936753",
 });
-let cliente = new ClientuserModel({
-  name: "Felipe",
-  credential: {
-    email: "felipemartinsduarte@outlook.com.br",
-    password: "12345",
-  },
-  documents: {
-    logo: "https://yt3.ggpht.com/ytc/AKedOLTM6bGgJWtayEJrZHApYyJSaBqWLkMnXixAVvc85Q=s68-c-k-c0x00ffffff-no-rj",
-    cnpj: 5155115151,
-  },
-  own: "61bf28d45c5c3b254caa10c1",
-});
 
+let accessibility = new AccessibilityModel({
+  name:"Possui rampas",
+  icon:"61c1d5897997ad94cc6b40de"
+})
 
-//Handlebars
-app.engine("handlebars", handlebars.engine({ defaultLayout: "main" }));
-app.set("view engine", "handlebars");
-//Calling Routes
-app.use("/", require("./routers/router.js")); //Trazendo multer, controller e router
-
-//Renderizando pagina
-app.get("/", (req, res) => {
-  res.render("app");
-});
-
-//Routes
-
-/* app.get('/:id',(req,res)=>{
-  res.send("Tá funcionando")
-}); */
-
-/*app.post('/:id',(req,res)=>{
-res.send("Tá funcionando")
-});
-
-/* app.put('/:id',(req,res)=>{
-res.send("Tá funcionando")
-});
-
-app.delete('/:id',(req,res)=>{
-res.send("Tá funcionando")
-});*/
-
-app.listen(9090, () => {
-  console.log("Conectado");
+//Open Server
+var port = 9090;
+app.listen(port, () => {
+  console.log(`Conectado na porta ${port}`);
 });
