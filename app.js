@@ -44,6 +44,8 @@ app.use("/", require("./routers/router.js")); //Router: Singleupload, Multiuploa
 app.use("/", require("./routers/services.js")); //Services: Spot, Accessibility, Quantity
 app.use("/", require("./routers/registerlogin.js")); //Register-Login: User: Login, Register
 app.use("/", require("./routers/details.js")); //Details: Profile 
+app.use("/", require("./routers/items.js")); //Items: Options: Spot,Accesibility, Quantity, Team, Profile 
+
 
 
 //Rendering
