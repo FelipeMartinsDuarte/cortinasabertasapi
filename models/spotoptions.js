@@ -3,7 +3,13 @@ const mongoose = require("mongoose");
 const spotoptionsSchema = new mongoose.Schema({
     name:{
         type:String,
-        require:true
+        require:true,
+        unique:true
+    },
+    slug:{
+        type:String,
+        required:true,
+        unique:true
     },
     icon:{
         type: mongoose.SchemaTypes.ObjectId,
