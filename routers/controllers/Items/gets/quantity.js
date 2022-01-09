@@ -3,12 +3,12 @@ const route = require("express").Router();
 const mongoose = require("mongoose");
 
 //Request Models
-const teamModel = require("../../../../models/teamoptions");
+const quantityModel = require("../../../../models/quantityoptions.js");
 const images = require("../../../../models/images");
 
 //Export function
 exports.getitem = (req, res) => {
-  teamModel
+  quantityModel
     .find({})
     .populate('icon')
     .then(items => {

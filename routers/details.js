@@ -16,12 +16,12 @@ const contactadd = require("./controllers/Service/contactadd");
 const teamget = require("./controllers/Items/gets/team")
 
 //Routes
-route.post("/equipe", teamadd.addteamitem);
+route.post("/api/equipe", teamadd.addteamitem);
 
-route.get("/equipe", teamget.getitem );
+route.get("/api/equipe", teamget.getitem );
 
-route.post("/perfil", addprof.addprofile);
+route.post("/api/perfil", addprof.addprofile);
 
-route.post("/contato", contactadd.contactingadd)
+route.post("/api/contato", contactadd.contactingadd)
 
 module.exports = route;

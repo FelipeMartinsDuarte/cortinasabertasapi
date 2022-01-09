@@ -13,11 +13,12 @@ const quantitySchema = new mongoose.Schema({
     },
     icon:{
         type: mongoose.SchemaTypes.ObjectId,
-        ref: './images',
+        ref: 'images',
         required:true
     }
 })
 
 const qunatityoptions = mongoose.model('quantityoptions', quantitySchema);
+const images = require('./images');
 
 module.exports = qunatityoptions;

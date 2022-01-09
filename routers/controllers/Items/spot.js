@@ -6,9 +6,7 @@ const validator = require("validator");
 const fs = require("fs");
 
 //Request Models
-const spotModel = require("../../../models/spotoptions");
-const teamModel = require("../../../models/teamoptions");
-const accessibilityModel = require("../../../models/accessibilityoptions");
+
 const quantityoptionsModel = require("../../../models/quantityoptions");
 const imageModel = require("../../../models/images");
 
@@ -36,7 +34,7 @@ exports.additem = async (req, res, next) => {
   var nameslug = slugify(nameitem);
 
   //Define model
-  let newquantity= new quantityoptionsModel({
+  let newteam = new quantityoptionsModel({
     name: nameitem,
     slug: nameslug,
     logo: undefined,
@@ -48,8 +46,8 @@ exports.additem = async (req, res, next) => {
       if (option) {
         return res.status(400).json({ Error: "Este item já está cadastrado" });
       } else {
-        newquantity.icon = id;
-        newquantity.save();
+        newteam.icon = id;
+        newteam.save();
       }
     });
   }

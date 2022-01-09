@@ -13,11 +13,12 @@ const accessibilityoptionsSchema = new mongoose.Schema({
     },
     icon:{
         type: mongoose.SchemaTypes.ObjectId,
-        ref: './images',
+        ref: 'images',
         required:true
     }
 });
 
 const accessibility = mongoose.model('accessibilityoptions', accessibilityoptionsSchema);
+const images = require('./images');
 
 module.exports = accessibility;
