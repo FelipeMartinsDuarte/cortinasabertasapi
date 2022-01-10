@@ -12,11 +12,16 @@ const addprof = require("./controllers/Service/profileadd")
 const teamadd = require("./controllers/Service/teamadd");
 const contactadd = require("./controllers/Service/contactadd");
 
+//Request get models
+const teamget = require("./controllers/Items/gets/team")
+
 //Routes
-route.post("/equipe", teamadd.addteamitem);
+route.post("/api/equipe", teamadd.addteamitem);
 
-route.post("/perfil", addprof.addprofile);
+route.get("/api/equipe", teamget.getitem );
 
-route.post("/contato", contactadd.contactingadd)
+route.post("/api/perfil", addprof.addprofile);
+
+route.post("/api/contato", contactadd.contactingadd)
 
 module.exports = route;

@@ -13,9 +13,9 @@ const multer = require("./middlewares/multer");
 const imgadd = require("./controllers/uploader/imageadd");
 
 //Routes
-route.post("/enviarmultiplo", multer.array("images", 12), imgadd.uploads);
+route.post("/api/enviarmultiplo", multer.array("images", 12), imgadd.uploads);
 
-route.post("/enviarunico", multer.single("images"), imgadd.uploads);
+route.post("/api/enviarunico", multer.single("images"), imgadd.uploads);
 
 
 

@@ -19,17 +19,17 @@ const logintwoadd = require("./controllers/Login-Register/loging/steptwo");
 
 //Routes
 //User Sign up
-route.post("/register", rgstep1.addregister)
+route.post("/api/register", rgstep1.addregister)
 
-route.post("/register/password", rgstep2.addregister);
+route.post("/api/register/password", rgstep2.addregister);
 
-route.post("/login", loginoneadd.loginone);
+route.post("/api/login", loginoneadd.loginone);
 
-route.post("/login/password", logintwoadd.logintwo);
+route.post("/api/login/password", logintwoadd.logintwo);
 
 //Customer Register (Nursing home owner)
-route.post("/account", ctrgstep1.addregister)
+route.post("/api/account", ctrgstep1.addregister)
 
-route.post("/account/register", ctrgstep2.addregister)
+route.post("/api/account/register", ctrgstep2.addregister)
 
 module.exports = route;

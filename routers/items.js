@@ -15,7 +15,7 @@ const multer = require("./middlewares/multer");
 const spot = require("./controllers/Items/spot")
 
 //Routes
-route.post("/spot",multer.array("images",1),spot.additem);
+route.post("/api/spot",multer.array("images",1),spot.additem);
 
 
 module.exports = route;

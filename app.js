@@ -8,8 +8,14 @@ const session = require('express-session');
 const flash = require('connect-flash');
 const mongoose = require("mongoose");
 const passport = require('passport');
+const cors = require('cors');
 
-//Configuring Modules~
+//Configuring Modules
+// Cors
+var corsOptions = {
+  origin: "http://localhost:8080"
+}
+app.use(cors(corsOptions));
 // Passport 
 require('./routers/middlewares/passport')(passport); 
 // Mongoose
@@ -76,11 +82,6 @@ let nursing = new NursingModel({
   },
   owner: "61bf1bc2bd08f89ea5936753",
 });
-
-let accessibility = new AccessibilityModel({
-  name:"Possui rampas",
-  icon:"61c1d5897997ad94cc6b40de"
-})
 
 //Open Server
 var port = 9090;
