@@ -53,7 +53,6 @@ app.use("/", require("./routers/details.js")); //Details: Profile
 app.use("/", require("./routers/items.js")); //Items: Options: Spot,Accesibility, Quantity, Team, Profile 
 
 
-
 //Rendering
 app.get("/", (req, res) => {
   res.render("app");

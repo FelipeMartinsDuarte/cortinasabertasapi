@@ -9,18 +9,28 @@ route.use(bodyParser.urlencoded({ extended: true }));
 
 //Request models
 const quantityadd = require("./controllers/Place/quantityadd");
-const quantityget = require("./controllers/Items/gets/quantity");
 const accessibilityadd = require("./controllers/Place/accessibilityadd");
 const spotadd = require("./controllers/Place/spotadd");
 
-//Routes
-route.post("/api/quantidade", quantityadd.addquantities);
+//Get controllers
+const quantityget = require("./controllers/Items/gets/quantity");
+const accessibilityget = require("./controllers/Items/gets/accessibility")
+const spotget = require("./controllers/Items/gets/spot")
 
-route.get("/api/quantidade", quantityget.getitem);
+
+//Routes
+route.post("/api/estrutura", quantityadd.addquantities);
+
+route.get("/api/estrutura", quantityget.getitem);
 
 route.post("/api/acessibilidade", accessibilityadd.accessibilities);
 
+route.get("/api/acessibilidade", accessibilityget.getitem);
+
 route.post("/api/lugar", spotadd.addspoties)
+
+route.get("/api/lugar", spotget.getitem);
+
 
 
 

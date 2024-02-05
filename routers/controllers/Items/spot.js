@@ -7,7 +7,7 @@ const fs = require("fs");
 
 //Request Models
 
-const quantityoptionsModel = require("../../../models/quantityoptions");
+const spotoptionsModel = require("../../../models/spotoptions");
 const imageModel = require("../../../models/images");
 
 //Configurations
@@ -34,7 +34,7 @@ exports.additem = async (req, res, next) => {
   var nameslug = slugify(nameitem);
 
   //Define model
-  let newteam = new quantityoptionsModel({
+  let newteam = new spotoptionsModel({
     name: nameitem,
     slug: nameslug,
     logo: undefined,
@@ -42,7 +42,7 @@ exports.additem = async (req, res, next) => {
 
   //Find conflict
   function findConflict(id) {
-    quantityoptionsModel.findOne({ slug: nameslug }).then((option) => {
+    spotoptionsModel.findOne({ slug: nameslug }).then((option) => {
       if (option) {
         return res.status(400).json({ Error: "Este item já está cadastrado" });
       } else {
